@@ -1,2 +1,2 @@
-const {app} = require("./index")
+import {app } from "./index"
 export default app;
