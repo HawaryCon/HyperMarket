@@ -11,12 +11,12 @@ exports.createProduct = async (req, res) => {
         const pData = req.body;
         const newP = new Product(pData);
         const savedProduct = await newP.save();
-        return res.status(201).json(savedProduct);
+        res.status(201).json(savedProduct);
 
 
     }
     catch (error) {
-        return res.status(420).json({ message: error.message })
+         res.status(420).json({ message: error.message })
     }
 }
 exports.getProduct = async (req, res) => {
