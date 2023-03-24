@@ -18,3 +18,4 @@ mongoose.connect(process.env.CONNECTION_URI, { useNewUrlParser: true, useUnified
     .catch((error) => console.log(error.message));
 
 
+module.exports = app;
