@@ -1,2 +1,2 @@
-const app = require("./index")
-export default app.app;
+const {app} = require("./index")
+export default app;
