@@ -8,6 +8,9 @@ const categoriesControllers = require('../controllers/categoriesControllers.js')
 
 
 const router = express.Router();
+router.get('/' , (req , res ) => {
+    return res.status(201).json("Hello World");
+})
 
 router.post('/createUser', userControllers.createUser);
 router.get('/getUser', userControllers.getUser);
