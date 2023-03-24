@@ -24,7 +24,7 @@ exports.getProduct = async (req, res) => {
     try {
 
         const product = await Product.find();
-        res.status(200).json(product);
+        return res.status(200).json(product);
     }
     catch (error) {
         return res.status(420).json({ message: error.message })
