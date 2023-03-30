@@ -13,10 +13,11 @@ exports.createOrder = async (req, res) => {
     }
     }
 exports.getOrder = async (req, res) => {
-    const id = req.body._id; // user id
+    const number = req.body.number; //order number
     try {
-        const order = await Order.findById(id);
-        res.status(200).json(order)
+        const order = await Order.find({ number: number }).populate("product").exec();
+        total = order[0]["product"][0]["price"][0];
+        res.status(200).json({ total })
     }
     catch (error) {
         return res.status(420).json({ message: error.message })

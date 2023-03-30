@@ -5,6 +5,8 @@ const cartControllers = require('../controllers/cartControllers.js')
 const favControllers = require('../controllers/favControllers.js')
 const orderControllers = require('../controllers/orderControllers.js')
 const categoriesControllers = require('../controllers/categoriesControllers.js')
+const brandsControllers = require('../controllers/brandsController.js')
+const pricingControllers = require('../controllers/pricingControllers.js')
 
 
 const router = express.Router();
@@ -17,9 +19,10 @@ router.get('/getUser', userControllers.getUser);
 router.patch('/updateUser', userControllers.updateUser);
 
 router.post('/createProduct', productControllers.createProduct);
-router.get('/getProduct', productControllers.getProduct);
+router.get('/getProducts', productControllers.getProducts);
 router.patch('/updateProduct', productControllers.updateProduct);
-router.delete('/deleteProduct', productControllers.deleteProduct)
+router.delete('/deleteProduct', productControllers.deleteProduct);
+router.get('/hotDeals', productControllers.hotDeals);
 
 
 router.post('/addToCart', cartControllers.addToCart);
@@ -35,6 +38,16 @@ router.get('/getOrder', orderControllers.getOrder);
 
 router.post('/createCategory', categoriesControllers.createCategory);
 router.get('/getCategory', categoriesControllers.getCategory);
+router.get('/allCategories', categoriesControllers.getAllCategory);
+router.delete('/deleteFromCategory', categoriesControllers.deleteFromCategory);
 
+router.post('/addToBrand', brandsControllers.addBrand);
+router.get('/getBrand', brandsControllers.getBrand);
+router.delete('/deletefromBrand', brandsControllers.deleteFromBrand);
+
+router.post('/newPriceTag', pricingControllers.priceTag);
+router.delete('/deletePriceTag', pricingControllers.deletePriceTag);
+router.patch('/updatePriceTag', pricingControllers.updatePriceTag);
+router.patch('/promoteProduct', pricingControllers.promoteProduct);
 
 module.exports = router;

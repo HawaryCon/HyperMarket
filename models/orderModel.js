@@ -10,13 +10,13 @@ const orderSchema = new mongoose.Schema({
     } ,
     status : String , 
     
-    products :[ {
+    product : [{
         type: mongoose.Schema.Types.ObjectId,
         ref: "Product"
         }
-    ] 
-,
-    total : Number 
+    ]
+     
+
     
 }, { timestamps: true });
 module.exports = mongoose.model("Order", orderSchema);
