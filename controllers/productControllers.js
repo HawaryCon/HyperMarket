@@ -77,7 +77,7 @@ exports.hotDeals = async (req, res) => {
         let pp = [];
         for (let index = 0; index < product.length; index++) {
             for (let j = 0; j < (product[index]["price"]??[]).length; j++) {
-                if (product[index]["price"][j]["afterSaleValue"] == 112.5) {
+                if (product[index]["price"][j]["afterSaleValue"]) {
                     pp.push(product[index])
                 }
                 

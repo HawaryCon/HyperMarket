@@ -6,12 +6,19 @@ const cartSchema = new mongoose.Schema({
         ref : "User"
     }
   ,
- products : 
+ product : 
     {
         type : mongoose.Schema.Types.ObjectId,
         ref : "Product"
-    } ,
-    quantity : Number ,
+    } 
+    // ,
+    // price: {
+    //     type : mongoose.Schema.Types.ObjectId,
+    //     ref : "Pricing"
+    // }
+    ,
+    quantity : Number,
+    price : Number
     
 });
 module.exports = mongoose.model("Cart", cartSchema);
