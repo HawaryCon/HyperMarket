@@ -8,7 +8,7 @@ const productControllers = require('../controllers/productControllers.js')
 const cartControllers = require('../controllers/cartControllers.js')
 const favControllers = require('../controllers/favControllers.js')
 const orderControllers = require('../controllers/orderItemsControllers.js')
-// const categoriesControllers = require('../controllers/categoriesControllers.js')
+const categoriesControllers = require('../controllers/categoriesControllers.js')
 const brandsControllers = require('../controllers/brandsController.js')
 const pricingControllers = require('../controllers/pricingControllers.js')
 const search = require('../controllers/search.js')
@@ -52,9 +52,10 @@ router.get('/getOrder', orderControllers.getOrder);
 router.get('/getOrders', orderControllers.getOrders);
 
 // router.post('/createCategory', upload.single("file"), categoriesControllers.createCategory);
-// router.get('/getCategory', categoriesControllers.getCategory);
-// router.get('/allCategories', categoriesControllers.getAllCategory);
-// router.delete('/deleteFromCategory', categoriesControllers.deleteFromCategory);
+router.post('/createCategory', categoriesControllers.createCategory);
+router.get('/getCategory', categoriesControllers.getCategory);
+router.get('/allCategories', categoriesControllers.getAllCategory);
+router.delete('/deleteFromCategory', categoriesControllers.deleteFromCategory);
 
 router.post('/addToBrand', brandsControllers.addBrand);
 router.get('/getBrand', brandsControllers.getBrand);
