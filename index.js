@@ -4,12 +4,15 @@ const cors = require('cors');
 const { config } = require('dotenv');
 const routers = require('./routes/routes.js'); //
 config();
+const fs = require('fs');
 
 const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cors());
 app.use(routers);
+
+
 
 const PORT = process.env.PORT || 7000;
 

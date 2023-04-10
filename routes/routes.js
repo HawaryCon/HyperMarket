@@ -1,5 +1,9 @@
 const express = require('express');
+const multer = require("multer")
+const upload = multer({ dest: "uploads/" })
+
 const userControllers = require('../controllers/userControllers.js')
+const iGenerate = require('../controllers/createImage.js')
 const productControllers = require('../controllers/productControllers.js')
 const cartControllers = require('../controllers/cartControllers.js')
 const favControllers = require('../controllers/favControllers.js')
@@ -8,6 +12,8 @@ const categoriesControllers = require('../controllers/categoriesControllers.js')
 const brandsControllers = require('../controllers/brandsController.js')
 const pricingControllers = require('../controllers/pricingControllers.js')
 const search = require('../controllers/search.js')
+const img = require('../controllers/img.js')
+
 
 
 const router = express.Router();
@@ -15,6 +21,12 @@ router.get('/' , (req , res ) => {
      res.status(201).json("Hello World");
 })
 router.get('/search/:key', search.search);
+
+router.post('/gen', iGenerate.createImage);
+
+router.post("/upload_files", upload.single("file"), img.uploadFile);
+
+
 
 router.post('/createUser', userControllers.createUser);
 router.get('/getUser', userControllers.getUser);
@@ -39,7 +51,7 @@ router.post('/createOrder', orderControllers.createOrder);
 router.get('/getOrder', orderControllers.getOrder);
 router.get('/getOrders', orderControllers.getOrders);
 
-router.post('/createCategory', categoriesControllers.createCategory);
+router.post('/createCategory', upload.single("file"), categoriesControllers.createCategory);
 router.get('/getCategory', categoriesControllers.getCategory);
 router.get('/allCategories', categoriesControllers.getAllCategory);
 router.delete('/deleteFromCategory', categoriesControllers.deleteFromCategory);
